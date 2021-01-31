@@ -38,8 +38,31 @@ class Calk(object):
             print(Fore.YELLOW)
             print('\tChoose other numbers')
 
+class QuadraticEquation(object):
+    def __init__(self,a,b,c):
+        self.a=a
+        self.b=b
+        self.c=c
+    def dis(self,a,b,c):
+        d=(b**2)-4*a*c 
+        print(Fore.GREEN, 'D=',d)
+        if d > 0:
+            self.xF(a,b,c,d)
+        elif d == 0:
+            self.xF2(a,b,c,d)
+        elif d < 0:
+            print(Fore.RED,'No roots')
+    def xF(self,a,b,c,d):
+        x1=(-b-math.sqrt(d))/(a*2)
+        x2=(-b+math.sqrt(d))/(a*2)
+        print(Fore.GREEN, 'x1=',x1)
+        print(Fore.GREEN, 'x2=',x2)
+    def xF2(self,a,b,c,d):
+        x=-((b)(2*a))
+        print(Fore.GREEN, 'x=',x)
 
 calk = Calk(False)
+quadraticEquation=QuadraticEquation(False,False,False)
 print(Fore.MAGENTA)
 print('\t\t█▀▀█ █░░█ █   █ Made by realyShould')
 print('\t\t█░░█ █▄▄█ █▀▄▀█')
@@ -48,6 +71,8 @@ def menu():
     print(Fore.RED)
     print('\tChoose')
     print(Fore.CYAN,'[1]Calk')
+    print(Fore.CYAN,'[2]Quadratic Equation')
+    print(Fore.YELLOW,'[0]Exit')
     print(Fore.MAGENTA)
     try:
         
@@ -73,6 +98,12 @@ def menu():
             else:
                 print(Fore.YELLOW, 'Wrong action')
                 menu()
+        elif userInput == 2:
+            a=int(input('a:'))
+            b=int(input('b:'))
+            c=int(input('c:'))
+            quadraticEquation.dis(a,b,c)
+            menu()
         elif userInput == 0:
             quit()
     except ValueError:
