@@ -61,6 +61,15 @@ class QuadraticEquation(object):
         x=-((b)(2*a))
         print(Fore.GREEN, 'x=',x)
 
+def squareRoot():
+    try:
+        print(Fore.RED)
+        num = int(input('Enter number:'))
+        ans=math.sqrt(num)
+        print(Fore.GREEN,'Square root of ', num, ' is ' ,ans)
+    except ZeroDivisionError:
+        print(Fore.YELLOW,'Error with number')
+        squareRoot()
 calk = Calk(False)
 quadraticEquation=QuadraticEquation(False,False,False)
 print(Fore.MAGENTA)
@@ -72,6 +81,7 @@ def menu():
     print('\tChoose')
     print(Fore.CYAN,'[1]Calk')
     print(Fore.CYAN,'[2]Quadratic Equation')
+    print(Fore.CYAN,'[3]Square root of a number.')
     print(Fore.YELLOW,'[0]Exit')
     print(Fore.MAGENTA)
     try:
@@ -103,6 +113,9 @@ def menu():
             b=int(input('b:'))
             c=int(input('c:'))
             quadraticEquation.dis(a,b,c)
+            menu()
+        elif userInput == 3:
+            squareRoot()
             menu()
         elif userInput == 0:
             quit()
